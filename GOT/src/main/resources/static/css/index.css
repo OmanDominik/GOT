@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #006fff;
+    font-family: Arial;
+    overflow-x: hidden;
+}
+
+#mountain {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    z-index: 0;
+}
+
+#mountain img {
+    position: absolute;
+    left: calc(20%);
+    bottom: 0;
+    height: 90%;
+    width: 60%;
+}
+
+.cloud {
+    width: 15vw;
+    overflow: hidden;
+}
+
+
+.cloud:nth-of-type(1) {
+    position: absolute;
+    left: -25vw;
+    top: 25vh;
+    width: 20vw;
+    z-index: 1;
+    animation: cloud1 40s 1s 1 linear;
+}
+
+@keyframes cloud1 {
+    100%{left: 200vw}
+}
+
+.cloud:nth-of-type(2) {
+    position: absolute;
+    left: -15vw;
+    top: 13vh;
+    z-index: -1;
+    animation: cloud2 40s 4s 1 linear;
+}
+
+@keyframes cloud2 {
+    100%{left: 130vw}
+}
+
+.cloud:nth-of-type(3) {
+    position: absolute;
+    left: -15vw;
+    top: 17vh;
+    width: 13vw;
+    z-index: -1;
+    animation: cloud3 40s 30s 1 linear;
+}
+
+@keyframes cloud3 {
+    100%{left: 170vw}
+}
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>GOT - Internetowy przewodnik</title>
+    <link rel="shortcut icon" type="image/jpg" href="images/mountain.png"/>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="logo">
+        <img src="images/logo-pttk.png" alt="logo-pttk">
+        <h1>Internetowy przewodnik - GOT</h1>
+    </div>
+    <div id="mountain"><img src="images/mountain.png" alt="Góra"></div>
+    <img class="cloud" src="images/cloud1.png" alt="chmurka1">
+    <img class="cloud" src="images/cloud2.png" alt="chmurka2">
+    <img class="cloud" src="images/cloud3.png" alt="chmurka3">
+    <nav>
+        <div class="option">Wykaz szlaków</div>
+        <div class="option">Generowanie trasy</div>
+    </nav>
+
+    <nav>
+        <div class="option">Pracownik PTTK</div>
+    </nav>
+
+    <div class="login-pop-up">
+        <div><h2>Zaloguj się</h2></div>
+        <div>
+            <p>
+                <label for="login">email</label>
+                <input id="login" name="login" type="text" size="30">
+            </p>
+            <p>
+                <label for="password">hasło</label>
+                <input id="password" name="password" type="password" size="30">
+            </p>
+            <button id="loginBtn">Zaloguj</button>
+        </div>
+        <p id="loginMsg"></p>
+    </div>
+
+    <div id="overlay"></div>
+
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/general.js"></script>
+</body>
+</html>

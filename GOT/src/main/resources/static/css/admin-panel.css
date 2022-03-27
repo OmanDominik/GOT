@@ -1,0 +1,303 @@
+#list {
+    width: 60vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    position: relative;
+    left: calc(50% - 30vw);
+    background-color: #ffffff;
+}
+
+#list table tbody:nth-of-type(2n) tr {
+    background-color: #c8c8c8;
+}
+
+#list table td {
+    padding: 5px;
+    margin: 0;
+}
+
+#list table tbody:nth-of-type(2n) td {
+    background-color: #c8c8c8;
+    padding: 5px;
+}
+
+#list table th {
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 5vh;
+    margin-bottom: 7vh;
+}
+
+#filterBtn, #addTrailOption {
+    height: 5vh;
+    font-size: 3vh;
+    background-color: white;
+    padding: 1vh;
+    border: none;
+    margin: 0 2vh;
+    border-radius: 20px;
+    transition: .3s;
+    transform: scale(1);
+}
+
+#filterBtn:hover, #addTrailOption:hover {
+    cursor: pointer;
+    background-color: rgb(230, 230, 230);
+    transform: scale(1.1);
+}
+
+#filters, #addingTrail {
+    display: none;
+}
+#filters.active, #addingTrail.active {
+    display: block;
+    position: relative;
+    width: 70vw;
+    height: 30vh;
+    left: calc(50% - 35vw);
+    padding: 1vh;
+    border-radius: 30px;
+    margin-top: 10vh;
+    background-color: #8bc3f5;
+    text-align: center;
+    transition: .1s;
+}
+
+
+.inputSegment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2vh;
+}
+
+.inputSegment:nth-of-type(4) {
+    justify-content: left;
+}
+
+.pickMountainPoint, .pickMountainPointToAdd {
+    background-color: white;
+    width: 5vw;
+    height: 3vh;
+    border-radius: 6px;
+    border: none;
+}
+
+.pickMountainPoint:hover, .pickMountainPointToAdd:hover {
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+}
+
+.pickMountainPointToAdd, .pickMountainPoint {
+    position: absolute;
+    left: 2vh;
+    top: 4vh;
+}
+
+
+#chosenStartingPoint, #chosenEndPoint {
+    position: absolute;
+    left: 25%;
+    font-weight: bold;
+    background-color: white;
+    padding: 2px;
+    border: solid black 2px;
+}
+
+#choosingEndPointToAddParagraph, #choosingStartingPointToAddParagraph, #choosingEndPointParagraph, #choosingStartingPointParagraph {
+    margin-left: 5vw;
+}
+
+.icon {
+    color: #ff0000;
+    margin: 0 5px;
+}
+
+.icon:hover {
+    cursor: pointer;
+    color: #ad0000;
+}
+
+.inputSegment:nth-of-type(3), .inputSegment:nth-of-type(4) {
+    margin-top: 3vh;
+}
+
+#filters #searchBtn, #addingTrail #addTrailBtn {
+    width: 8vw;
+    height: 4vh;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 8px;
+    border: none;
+    transition: .3s;
+}
+
+#filters #searchBtn:hover, #addingTrail #addTrailBtn:hover {
+    cursor: pointer;
+    background-color: rgb(220, 220, 220);
+}
+
+#filters #searchInput #search {
+    position: relative;
+    width: 40vw;
+    height: 3vh;
+    left: 15vw;
+}
+
+#trailsNotFound {
+    display: block;
+    height: 5vh;
+    line-height: 5vh;
+    font-size: 3vh;
+    text-align: center;
+}
+
+.trailColorCircle {
+    position: relative;
+    display: block;
+    left: calc(50% - 7.5px);
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+}
+
+ #list {
+     width: 70vw;
+     left: calc(50% - 35vw);
+ }
+
+.crud {
+    font-size: 20px;
+    transform: scale(1);
+    transition: .2s;
+}
+
+.crud:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+#modifyTrailPopup {
+    display: none;
+}
+
+#modifyTrailPopup.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: fixed;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 20px;
+    left: calc(50% - 25vw);
+
+    padding: 2vh;
+    top: 20vh;
+    background-color: rgba(220, 220, 220, 0.95);
+    z-index: 20;
+}
+
+#modifyBtn {
+    position: absolute;
+    display: block;
+    bottom: 5vh;
+    width: 5vw;
+    height: 3vh;
+    border-radius: 10px;
+    left: calc(50% - 2.5vw);
+}
+
+
+/*LOADING ANIMATION*/
+#loadAnim {
+    display: inline-block;
+    position: relative;
+    left: calc(50% - 3.5vh);
+    width: 7vh;
+    height: 7vh;
+}
+#loadAnim div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+#loadAnim div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ffffff;
+    margin: -4px 0 0 -4px;
+}
+#loadAnim div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+#loadAnim div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+#loadAnim div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+#loadAnim div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+#loadAnim div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+#loadAnim div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+#loadAnim div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+#loadAnim div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+#loadAnim div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+#loadAnim div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+#loadAnim div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+#loadAnim div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+#loadAnim div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+#loadAnim div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+#loadAnim div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+#loadAnim div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

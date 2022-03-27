@@ -1,0 +1,250 @@
+h1 {
+    text-align: center;
+}
+
+#logo {
+    margin-bottom: 5vh;
+}
+
+section#pointsSelection {
+    display: flex;
+    position: relative;
+    width: 80vw;
+    left: calc(50% - 40vw);
+    top: 5vh;
+    padding: 5vh;
+    border-radius: 20px;
+    margin-bottom: 5vh;
+    background-color: #8bc3f5;
+    justify-content: space-between;
+}
+
+section#pointsSelection div {
+    /*position: absolute;*/
+    text-transform: uppercase;
+    width: 21vw;
+    text-align: center;
+}
+
+section#pointsSelection div span {
+    display: block;
+    margin-top: 3vh;
+    text-align: center;
+    font-size: 2vh;
+}
+
+section#pointsSelection div span {
+    color: #377ccb;
+    transform: scale(1);
+    transition: .3s;
+}
+
+section#pointsSelection div span:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    color: #0b52a1;
+}
+
+section#pointsSelection div span .icon {
+    font-size: 5vh;
+    margin-bottom: 5px;
+}
+
+section#pointsSelection .chosenPointsInfo {
+    width: 100%;
+    min-height: 3vh;
+    padding: 5px;
+    border-radius: 20px;
+    margin-top: 3vh;
+    background-color: white;
+    text-transform: none;
+}
+
+
+#pickStartingMountainPointPopUp, #pickEndMountainPointPopUp, #pickIntermediateMountainPointPopUp {
+    display: none;
+}
+
+#pickStartingMountainPointPopUp.active, #pickEndMountainPointPopUp.active, #pickIntermediateMountainPointPopUp.active {
+    position: fixed;
+    left: calc(50% - 25vw);
+    top: 50vh;
+    display: block;
+    background-color: rgba(41, 139, 190, 0.95);
+    width: 50vw;
+    height: 30vh;
+    border-radius: 10px;
+    border: none;
+    z-index: 10;
+}
+
+.closePopupIcon {
+    position: absolute;
+    right: 2vh;
+    top: 2vh;
+    transform: scale(1);
+    transition: .3s;
+}
+
+.closePopupIcon:hover {
+    cursor: pointer;
+    color: red;
+    transform: scale(1.2);
+}
+
+section label {
+    display: inline-block;
+    margin: 5vh 0 0 1vw;
+}
+
+section button {
+    position: absolute;
+    display: block;
+    bottom: 5vh;
+    width: 5vw;
+    height: 3vh;
+    border-radius: 10px;
+    left: calc(50% - 2.5vw);
+}
+
+section button.hidden {
+    display: none;
+}
+
+section button:hover {
+    cursor: pointer;
+    background-color: #c8c8c8;
+}
+
+#generateBtn {
+    display: none;
+}
+
+#generateBtn.active {
+    position: absolute;
+    display: block;
+    left: calc(50% - 10vw);
+    bottom: 10vh;
+    width: 20vw;
+    height: 6vh;
+    line-height: 6vh;
+    text-align: center;
+    border-radius: 20px;
+    background-color: white;
+
+}
+
+#generateBtn:hover {
+    cursor: pointer;
+    background-color: #dcdcdc;
+}
+
+.deleteIntermediatePoint {
+    color: #d32e2e;
+    transform: scale(1);
+}
+
+.deleteIntermediatePoint:hover {
+    cursor: pointer;
+    color: #ff0000;
+    transform: scale(1.1);
+}
+
+#overlay.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(180, 180, 180, 0.6);
+    z-index: 5;
+}
+
+route1Visualization, #route2Visualization {
+    display: none;
+}
+
+#route1Visualization.active, #route2Visualization.active {
+    position: relative;
+    display: block;
+    width: 80vw;
+    left: calc(50% - 40vw);
+    top: 5vh;
+    padding: 3vh;
+    margin-bottom: 5vh;
+    border-radius: 20px;
+    background-color: #8bc3f5;
+    justify-content: space-between;
+    margin-bottom: 10vh;
+}
+
+.trailVisualization {
+    position: relative;
+    width: 80%;
+    left: calc(50% - 40%);
+    border: 5px solid black;
+    border-radius: 20px;
+    margin-bottom: 1vh;
+}
+
+.trailVisualization h2 {
+    text-align: center;
+}
+
+.trailVisualization p {
+    text-align: center;
+}
+
+#showAlternativeRouteBtn {
+    position: relative;
+    width: 10vw;
+    height: 5vh;
+    line-height: 5vh;
+    border-radius: 10px;
+    margin-bottom: 5vh;
+    text-align: center;
+    left: calc(50% - 5vw);
+    background-color: white;
+}
+
+#showAlternativeRouteBtn:hover {
+    cursor: pointer;
+    background-color: #e6e6e6;
+}
+
+#refreshBtn{
+    display: block;
+    font-size: 4vh;
+    text-align: center;
+    top: 2vh;
+    position: relative;
+    color: rgba(41, 139, 190, 0.95);
+    transform: scale(1);
+    transition: .2s;
+}
+
+#refreshBtn:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/*.trailV {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10vh;
+    height: 1vh;
+    transform-origin: 0% 50%;
+    background-color: black;
+    transform: rotate(0deg);
+}*/
+
+/*.circle {
+    position: absolute;
+    width: 10vh;
+    height: 5vh;
+    background-color: #8c7c7c;
+    border-radius: 50px;
+    bottom: 0;
+    left: 0;
+}*/

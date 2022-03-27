@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel administratora</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/pick-point-popup.css">
+    <link rel="stylesheet" href="css/admin-panel.css">
+    <link rel="shortcut icon" type="image/jpg" href="images/mountain.png"/>
+    <script src="https://kit.fontawesome.com/ff2e4db2ee.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div id="logo">
+        <img src="images/logo-pttk.png" alt="logo-pttk">
+        <h1>Internetowy przewodnik - GOT</h1>
+    </div>
+
+    <nav>
+        <div class="option">Wykaz szlaków</div>
+        <div class="option">Generowanie trasy</div>
+    </nav>
+
+    <nav>
+        <div class="option">Wyloguj</div>
+    </nav>
+
+    <div id="buttons">
+        <button id="filterBtn">Filtry</button>
+        <button id="addTrailOption">Dodaj</button>
+    </div>
+
+    <section id="filters">
+
+        <!--        <form action="/trails/filtered" method="get">-->
+        <div class="inputSegment">
+            <p id="choosingStartingPointParagraph">
+                <button class="pickMountainPoint">Wybierz</button>
+                Punkt początkowy:
+            </p>
+
+            <div style="display: flex">
+                <p>
+                    <label for="minEstimatedTime">Min. czas</label>
+                    <input id="minEstimatedTime" name="minEstimatedTime" type="number" min="5" max="6000" step="5">
+                </p>
+
+                <p>
+                    <label for="maxEstimatedTime">Max. czas</label>
+                    <input id="maxEstimatedTime" name="maxEstimatedTime" type="number" min="5" max="6000" step="5">
+                </p>
+            </div>
+
+        </div>
+
+        <div class="inputSegment">
+            <p id="choosingEndPointParagraph">
+                Punkt końcowy:
+            </p>
+
+            <div style="display: flex">
+                <p>
+                    <label for="minPoints">Min. punkty</label>
+                    <input id="minPoints" name="minPoints" type="number" min="0" max="50">
+                </p>
+
+                <p>
+                    <label for="maxPoints">Max. punkty</label>
+                    <input id="maxPoints" name="maxPoints" type="number" min="1" max="50">
+                </p>
+            </div>
+        </div>
+
+        <div class="inputSegment">
+
+            <p>
+                <label for="color">Kolor</label>
+                <select id="color" name="color">
+                    <option value="-" selected>-</option>
+                    <option value="RED">Czerwony</option>
+                    <option value="BLUE">Niebieski</option>
+                    <option value="GREEN">Zielony</option>
+                    <option value="YELLOW">Żółty</option>
+                    <option value="BLACK">Czarny</option>
+                    <option value="BZ">BZ</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="mountainRange">Pasmo górkie</label>
+                <select name="mountainRange" id="mountainRange">
+                    <option value="-" selected>-</option>
+                </select>
+            </p>
+
+        </div>
+
+        <div id="searchInput" class="inputSegment">
+            <p>
+                <input id="search" name="search" type="text">
+            </p>
+        </div>
+        <button id="searchBtn" type="submit">Szukaj</button>
+        <!--        </form>-->
+    </section>
+
+    <section id="addingTrail">
+
+        <!--        <form action="/trails/filtered" method="get">-->
+        <div class="inputSegment">
+            <p id="choosingStartingPointToAddParagraph">
+                <button class="pickMountainPointToAdd">Wybierz</button>
+                Punkt początkowy:
+            </p>
+
+            <div style="display: flex">
+                <p>
+                    <label for="estimatedTime">Czas</label>
+                    <input id="estimatedTime" name="estimatedTime" type="number" min="5" max="6000" step="5" value="5">
+                </p>
+            </div>
+
+        </div>
+
+        <div class="inputSegment">
+            <p id="choosingEndPointToAddParagraph">
+                Punkt końcowy:
+            </p>
+
+            <div style="display: flex">
+                <p>
+                    <label for="pointsForReaching">Punkty za wejście</label>
+                    <input id="pointsForReaching" name="pointsForReaching" type="number" min="1" max="50" value="1">
+                </p>
+
+                <p id="pointsForDescentParagraph">
+                    <label for="pointsForDescent">Punkty za zejście</label>
+                    <input id="pointsForDescent" name="pointsForDescent" type="number" min="1" max="50" value="1">
+                </p>
+            </div>
+        </div>
+
+        <div class="inputSegment">
+            <p>
+                <label for="colorToAdd">Kolor</label>
+                <select id="colorToAdd" name="color">
+                    <option value="RED">Czerwony</option>
+                    <option value="BLUE">Niebieski</option>
+                    <option value="GREEN">Zielony</option>
+                    <option value="YELLOW">Żółty</option>
+                    <option value="BLACK">Czarny</option>
+                    <option value="BZ">BZ</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="mountainRangeToAdd">Pasmo górskie</label>
+                <select name="mountainRangeToAdd" id="mountainRangeToAdd">
+                </select>
+            </p>
+
+        </div>
+        <div class="inputSegment">
+            <label for="oneWay">Jednokierunkowy</label>
+            <input id="oneWay" type="checkbox" style="margin-left: 1vw" onchange="updateAddTrailView()">
+        </div>
+
+        <button id="addTrailBtn" type="submit">Dodaj</button>
+        <!--        </form>-->
+    </section>
+
+    <section id="list">
+        <table>
+
+        </table>
+    </section>
+
+    <section id="pickMountainPointPopUp">
+        <span id="closePopupIcon"><i class="fas fa-times"></i></span>
+        <div>
+            <label for="startingPointsList">Punkt początkowy: </label>
+            <select id="startingPointsList" name="startingPoint">
+                <option value="-" selected>-</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="endPointsList">Punkt końcowy: </label>
+            <select id="endPointsList" name="endPoint" >
+                <option value="-" selected>-</option>
+            </select>
+        </div>
+        <button id="saveChosenPointsBtn">Zapisz</button>
+    </section>
+
+    <section id="pickMountainPointToAddPopUp">
+        <span id="closePopupIconToAdd"><i class="fas fa-times"></i></span>
+        <div>
+            <label for="startingPointsToAddList">Punkt początkowy: </label>
+            <select id="startingPointsToAddList" name="startingPoint">
+            </select>
+        </div>
+
+        <div>
+            <label for="endPointsToAddList">Punkt końcowy: </label>
+            <select id="endPointsToAddList" name="endPoint" >
+            </select>
+        </div>
+        <button id="saveChosenPointsToAddBtn">Zapisz</button>
+    </section>
+
+    <section id="modifyTrailPopup">
+        <div>
+            <label for="startingPointModifyList">Punkt startowy: </label>
+            <select id="startingPointModifyList" name="startingPoint" disabled>
+            </select>
+        </div>
+        <div>
+            <label for="endPointModifyList">Punkt końcowy: </label>
+            <select id="endPointModifyList" name="endPoint" disabled>
+            </select>
+        </div>
+
+        <div>
+            <span id="closeModifyPopupIcon"><i class="fas fa-times"></i></span>
+            <label for="colorToModify">Kolor</label>
+            <select id="colorToModify" name="color">
+            </select>
+        </div>
+        <div>
+            <label for="mountainRangeModify">Pasmo górskie</label>
+            <select name="mountainRangeModify" id="mountainRangeModify" disabled>
+            </select>
+        </div>
+
+        <div>
+            <label for="pointsForReachingModify">Punkty za wejście</label>
+            <input id="pointsForReachingModify" name="pointsForReaching" type="number" min="1" max="50" value="1">
+        </div>
+        <div id="pointsForDescentModifyDiv">
+            <label for="pointsForDescentModify">Punkty za zejście</label>
+            <input id="pointsForDescentModify" name="pointsForDescent" type="number" min="1" max="50" value="1">
+        </div>
+
+        <div>
+            <label for="estimatedTimeModify">Czas</label>
+            <input id="estimatedTimeModify" name="estimatedTime" type="number" min="5" max="6000" step="5" value="5">
+        </div>
+        <div>
+            <label for="oneWayModify">Jednokierunkowy</label>
+            <input id="oneWayModify" type="checkbox" style="margin-left: 1vw" onchange="updateModifyView()">
+        </div>
+        <button id="modifyBtn">Modyfikuj</button>
+    </section>
+
+    <div id="loadAnim"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+    <div id="overlay"></div>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/general.js"></script>
+    <script src="scripts/admin-panel.js"></script>
+</body>
+</html>

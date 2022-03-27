@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator Tras</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/pick-point-popup.css">
+    <link rel="stylesheet" href="css/route-generator.css">
+    <link rel="shortcut icon" type="image/jpg" href="images/mountain.png"/>
+    <script src="https://kit.fontawesome.com/ff2e4db2ee.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="logo">
+        <img src="images/logo-pttk.png" alt="logo-pttk">
+        <h1>Internetowy przewodnik - GOT</h1>
+    </div>
+
+    <nav>
+        <div class="option">Wykaz szlaków</div>
+        <div class="option">Generowanie trasy</div>
+    </nav>
+
+    <nav>
+        <div class="option">Pracownik PTTK</div>
+    </nav>
+
+    <h1>Asystent planowania wycieczek</h1>
+
+    <section id="pointsSelection">
+        <div>
+            <p>Punkt startowy</p>
+            <span id="pickStartingPoint"><i class="fas fa-crosshairs icon"></i><p>Wybierz</p></span>
+            <div id="chosenStartingPoint" class="chosenPointsInfo"></div>
+        </div>
+        <div>
+            <p>Punkty pośrednie</p>
+            <span id="addIntermediatePoint"><i class="fas fa-plus-circle icon"></i><p>Dodaj</p></span>
+            <div id="chosenIntermediatePoints" class="chosenPointsInfo"></div>
+        </div>
+        <div>
+            <p>Punkt końcowy</p>
+            <span id="pickEndPoint"><i class="fas fa-crosshairs icon"></i><p>Wybierz</p></span>
+            <div id="chosenEndPoint" class="chosenPointsInfo"></div>
+        </div>
+    </section>
+    <section id="route1Visualization">
+        <!--<div class="trailV" style="transform: rotate(-20deg)"></div>
+        <div class="trailV" style="transform: rotate(-10deg); left: 10vh; bottom: 3.63vh"></div>
+        <div class="trailV" style="transform: rotate(-40deg); left: 20vh; bottom: 5.39vh"></div>
+        <div class="trailV" style="transform: rotate(-30deg); left: 30vh; bottom: 13.78vh"></div>
+        <div class="trailV" style="transform: rotate(-60deg); left: 40vh; bottom: 19.55vh"></div>
+
+        <div class="circle"></div>
+        <div class="circle" style="left: 10vh; bottom: 3.63vh"></div>
+        <div class="circle" style="left: 20vh; bottom: 5.39vh"></div>
+        <div class="circle" style="left: 30vh; bottom: 13.78vh"></div>
+        <div class="circle" style="left: 40vh; bottom: 19.55vh"></div>
+&lt;!&ndash;        <div class="circle" style="left: 10vh; bottom: 3.63vh"></div>&ndash;&gt;-->
+    </section>
+
+    <section id="route2Visualization"></section>
+
+    <!--wybieranie punktu startowego do generowania trasy-->
+    <section id="pickStartingMountainPointPopUp">
+        <span class="closePopupIcon"><i class="fas fa-times"></i></span>
+        <div>
+            <label for="startingPointMountainRange">Pasmo górskie: </label>
+            <select id="startingPointMountainRange" name="mountainRange" onchange="updateMountainPointList('startingPointMountainRange', 'startingPointsList')">
+            </select>
+        </div>
+        <div>
+            <label for="startingPointsList">Punkt początkowy: </label>
+            <select id="startingPointsList" name="startingPoint">
+            </select>
+        </div>
+
+        <button id="saveSelectedStartingPointBtn" class="saveChosenPointsBtn">Zapisz</button>
+    </section>
+
+    <!--wybieranie punktu końcowego do generowania trasy-->
+    <section id="pickEndMountainPointPopUp">
+        <span class="closePopupIcon"><i class="fas fa-times"></i></span>
+        <div>
+            <label for="endPointMountainRange">Pasmo górskie: </label>
+            <select id="endPointMountainRange" name="mountainRange" onchange="updateMountainPointList('endPointMountainRange', 'endPointsList')">
+            </select>
+        </div>
+        <div>
+            <label for="endPointsList">Punkt końcowy: </label>
+            <select id="endPointsList" name="endPoint" >
+            </select>
+        </div>
+        <button id="saveSelectedEndPointBtn" class="saveChosenPointsBtn">Zapisz</button>
+    </section>
+
+    <section id="pickIntermediateMountainPointPopUp">
+        <span class="closePopupIcon"><i class="fas fa-times"></i></span>
+        <div>
+            <label for="intermediatePointMountainRange">Pasmo górskie: </label>
+            <select id="intermediatePointMountainRange" name="mountainRange" onchange="updateMountainPointList('intermediatePointMountainRange', 'intermediatePointsList')">
+            </select>
+        </div>
+        <div>
+            <label for="intermediatePointsList">Punkt pośredni: </label>
+            <select id="intermediatePointsList" name="intermediatePoint">
+            </select>
+        </div>
+        <button id="saveSelectedIntermediatePointBtn" class="saveChosenPointsBtn">Zapisz</button>
+    </section>
+
+    <div id="generateBtn">Generuj</div>
+
+    <div class="login-pop-up">
+        <div><h2>Zaloguj się</h2></div>
+        <div>
+            <form action="">
+                <p>
+                    <label for="login">email</label>
+                    <input id="login" name="login" type="text" size="30">
+                </p>
+                <p>
+                    <label for="password">hasło</label>
+                    <input id="password" name="password" type="password" size="30">
+                </p>
+                <button>Zaloguj</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/general.js"></script>
+    <script src="scripts/route-generator.js"></script>
+</body>
+</html>
